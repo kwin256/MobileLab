@@ -1,9 +1,5 @@
-/**
- * My To Do List App
- *
- * @format
- */
 
+"use client";
 import React from 'react';
 import {
   SafeAreaView,
@@ -11,11 +7,17 @@ import {
 } from 'react-native';
 import ToDoForm from './src/ToDoForm';
 import ToDoList from './src/ToDoList';
+import { useState } from 'react';
 
 function App() {
+  const [tasks, setTasks] = useState(['Do laundry',
+    'Go to gym',
+    'Walk dog'
+  ])
+
   return (
     <SafeAreaView>
-      <ToDoList />
+      <ToDoList tasks = {tasks}/>
       <ToDoForm />
     </SafeAreaView>
   );
