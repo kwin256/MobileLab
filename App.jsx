@@ -2,6 +2,7 @@
 "use client";
 import React from 'react';
 import {
+  KeyboardAvoidingView,
   SafeAreaView,
   StyleSheet
 } from 'react-native';
@@ -14,11 +15,23 @@ function App() {
     'Go to gym',
     'Walk dog'
   ])
+  const addTask = (task) => {
+    // Implement the logic to add a new task
+    if ( task.trim() === '') {
+      return;
+    }
+    if (tasks.includes(task)) {
+      return;
+    }
+    setTasks([...tasks, task]);
+  };
 
   return (
     <SafeAreaView>
+      
       <ToDoList tasks = {tasks}/>
-      <ToDoForm />
+      <ToDoForm addTask = {addTask} />
+      
     </SafeAreaView>
   );
 }
